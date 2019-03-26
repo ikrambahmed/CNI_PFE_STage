@@ -1,14 +1,15 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class AvoirBudgetPK {
+public class AvoirBudgetPK implements Serializable {
 
-	/* @Column(name = "CODE")
+	 @Column(name = "CODE")
 	private String code ; 
 	 @Column(name = "DATE_BUDG")
 	private Date date_budg ;
@@ -34,7 +35,7 @@ public class AvoirBudgetPK {
 		// TODO Auto-generated constructor stub
 	} 
 
-	 */
+	 
 	 
 	 
 }

@@ -32,8 +32,6 @@ public class UserService implements ICrudService<Utilisateur, String>{
 		userRepository.save(user);
 	}
 
-	
-
 	@Override
 	public void saveAll(Iterable<Utilisateur> iterable) {
 		userRepository.saveAll(iterable);

@@ -64,11 +64,19 @@ public class DeptGen implements Serializable {
     @JsonIgnore
     private Collection<Mission> missionCollection;
    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dept")
+    @JsonIgnore
+    private Collection <Projet> ProjetCollection  ; 
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departement")
     @JsonIgnore
-    private Collection <UserStruct> userCollection ; 
-    
+    private Collection <UserStruct> userCollection ;
   
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "depart")
+    @JsonIgnore
+    private Collection <AvoirBudget> AvoirBudgetCollection ;
+    
     @JsonIgnore
     public Collection<UserStruct> getUserCollection() {
 		return userCollection;
