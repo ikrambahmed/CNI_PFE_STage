@@ -63,9 +63,9 @@ public class MissionController {
 	
 	
 	@PostMapping(value="/findById")
-	  public Optional<Mission> getMissionById(@RequestBody MissionPK missionpk)
+	  public Optional<Mission> getMissionById(@RequestBody Mission mission)
 	    {
-		  return missiondao.getMissionById(missionpk) ; 
+		  return missiondao.getMissionById(mission.getMissionPK().getCode() , mission.getMissionPK().getNumMission()) ; 
 	    }
 	
 }

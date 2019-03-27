@@ -1,5 +1,6 @@
 package application.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import application.model.AvoirBudget;
 import application.model.Classe;
+import application.model.Mission;
 import application.repository.AvoirBudgetRepository;
 import application.repository.ClasseRepository;
 @Service
@@ -21,5 +23,31 @@ public class AvoirBudgetDao implements IAvoirBudget{
 	public List<AvoirBudget> findAll(){
 		return avoirBudgetRepository.findAll();
 	}
+
+	@Override
+	public List<AvoirBudget> getbugetByyearsBydept(String code, Date date_budg) {
+		return avoirBudgetRepository.findBugetByDeptByYears(code, date_budg);
+	}
+
+	@Override
+	public AvoirBudget addBudget(AvoirBudget a) {
+		// TODO Auto-generated method stub
+		return avoirBudgetRepository.save(a);
+	}
+
+	@Override
+	public List<AvoirBudget> getBudgetByType(String type_budget) {
+		// TODO Auto-generated method stub
+		return avoirBudgetRepository.getAvoirBudgetByType(type_budget);
+	}
+
+	@Override
+	public List<AvoirBudget> getBugetByDate(Date date_val) {
+		// TODO Auto-generated method stub
+		return avoirBudgetRepository.getBudgetByDate(date_val);
+	}
+	
+	
+	
 	
 }

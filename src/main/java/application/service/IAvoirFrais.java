@@ -15,4 +15,6 @@ public interface IAvoirFrais {
 	
 	void deleteFrais(AvoirFrais frais) ; 
 	
+	public List<AvoirFrais> AvoirFraisByMission(String numMission) ;
+
 }

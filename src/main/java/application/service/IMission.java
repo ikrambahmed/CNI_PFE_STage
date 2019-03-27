@@ -16,5 +16,5 @@ public interface IMission {
 	
 	void deleteMission(Long code) ; 
 	public List<Mission> findMission(String codeDept);
-	public Optional<Mission> getMissionById( MissionPK Missionpk) ; 
+	public Optional<Mission> getMissionById( String code , String numMission) ; 
 }

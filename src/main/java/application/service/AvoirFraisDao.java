@@ -3,12 +3,14 @@ package application.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import application.model.AvoirFrais;
 import application.repository.AvoirFraisRepository;
 
 @Service
+@Primary
 public class AvoirFraisDao implements IAvoirFrais {
 	
 	@Autowired
@@ -33,6 +35,11 @@ public class AvoirFraisDao implements IAvoirFrais {
 	public void deleteFrais(AvoirFrais frais) {
 	
 		
+	}
+
+	@Override
+	public List<AvoirFrais> AvoirFraisByMission(String num) {
+		return avoirFraisRespository.getFraisByMission(num);
 	}
 	
 	

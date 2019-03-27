@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.model.AvoirFrais;
+import application.model.Missionnaire;
 import application.service.AvoirFraisDao;
 
 @RestController
@@ -25,8 +26,6 @@ public class AvoirFraisController {
 
 	@Autowired
 	private AvoirFraisDao avoirFrais ; 
-	
-
 		
 	@GetMapping("/listeFrais")
 	public List<AvoirFrais> getFrais() {
@@ -47,9 +46,15 @@ public class AvoirFraisController {
 	}
 	
 	@DeleteMapping("/delete")
-public void deleteFrais(@RequestBody AvoirFrais frais) {		
+    public void deleteFrais(@RequestBody AvoirFrais frais) {		
 	}
 	
+
+	@GetMapping(value="/avoirfraisbymission")
+	public List<AvoirFrais> AvoirFraisMiss(@RequestParam(name="num",defaultValue="")String num)
+	    {
+		  return avoirFrais.AvoirFraisByMission(num) ; 
+	    }
 
 	
 }

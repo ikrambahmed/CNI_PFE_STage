@@ -52,8 +52,8 @@ public class Missiondao implements IMission {
 
 	  
 		@Override
-		public Optional<Mission> getMissionById(MissionPK Missionpk) {
-			return missionRepository.findById(Missionpk);
+		public Optional<Mission> getMissionById(String code ,String num ) {
+			return missionRepository.recherche(code , num);
 		}
 
 	}
