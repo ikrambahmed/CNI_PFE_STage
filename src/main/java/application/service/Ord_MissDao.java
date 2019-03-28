@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import application.model.Missionnaire;
 import application.model.OrdMis;
 import application.repository.Ord_MissRepository;
 
@@ -28,5 +29,11 @@ import application.repository.Ord_MissRepository;
 		
 		public void updateOrd(OrdMis o) {
 			ordmissRepository.save(o);
+		}
+
+
+		public List<OrdMis> getMissionnaireByMission(String numMission) {
+			// TODO Auto-generated method stub
+			return ordmissRepository.getMissionnaireByNumMission(numMission);
 		}
 }

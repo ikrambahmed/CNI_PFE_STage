@@ -25,7 +25,7 @@ public class OrdMisPK implements Serializable {
     private short numord;
     
     @Column(name = "NUM_MISSION")
-    private String numMission;
+    private String numMission; 
     
 	public OrdMisPK() {
 		super();

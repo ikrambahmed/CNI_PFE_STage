@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.model.Mission;
 import application.model.Missionnaire;
 import application.model.OrdMis;
+import application.repository.Ord_MissRepository;
 import application.service.Missiondao;
 import application.service.Ord_MissDao;
 
@@ -24,7 +27,9 @@ public class Ord_MissController  {
 
 	@Autowired
 	Ord_MissDao ordMissDao;
-	
+	@Autowired
+	Ord_MissRepository repository;
+
 	
 	@GetMapping("/getAll")
 	public List<OrdMis> getOrds() {
@@ -43,4 +48,25 @@ public class Ord_MissController  {
 		ordMissDao.updateOrd(o);
 		
 	}
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public Boolean deletechildren(@RequestBody OrdMis ord) {
+	
+			if (repository.delete(ord.getOrdMisPK().getCode(),ord.getOrdMisPK().getCin(),ord.getOrdMisPK().getNumord(),ord.getOrdMisPK().getNumMission())==1) {
+				return true;
+				
+			}
+		
+		 
+			else
+
+		
+		return false;}
+
+	
+	@GetMapping(value="/getMissionnByMision")
+	  public List<OrdMis> findMissionnaire(@RequestParam(name="numMission",defaultValue="")String numMission)
+	    {
+		  return ordMissDao.getMissionnaireByMission(numMission) ; 
+	    }
 }
+	
