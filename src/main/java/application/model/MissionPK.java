@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
+//@Embeddable
 public class MissionPK implements Serializable {
 
     @Column(name = "NUM_MISSION")

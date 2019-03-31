@@ -133,5 +133,13 @@ public class Motcle implements Serializable {
     public String toString() {
         return "entities.Motcle[ codeMotcle=" + codeMotcle + " ]";
     }
+
+	public Collection<Mission> getMissions() {
+		return missions;
+	}
+
+	public void setMissions(Collection<Mission> missions) {
+		this.missions = missions;
+	}
     
 }

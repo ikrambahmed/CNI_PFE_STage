@@ -15,7 +15,7 @@ public class UserStructDao {
 	@Autowired
    UserStructRepository userStructRep ;
 
-	public List<DeptGen>findDept(String username) {
+	public DeptGen findDept(String username) {
 		// TODO Auto-generated method stub
 		return userStructRep.findDeptGen(username); 
 	} 

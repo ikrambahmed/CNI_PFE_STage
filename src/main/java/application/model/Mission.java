@@ -11,6 +11,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -18,14 +19,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@IdClass(MissionPK.class)
 @Entity
 @Table(name="MISSION")
 public class Mission implements Serializable{
 	    
-	    @EmbeddedId
-        protected MissionPK missionPK;
-	    
+//	    @EmbeddedId
+//        protected MissionPK missionPK;
+	@Id 
+	@Column(name = "NUM_MISSION")
+	    private String numMission;
+	   @Id 
+	    @Column(name = "CODE")
+	    private String code;
+    
+	
 	    @Column(name = "OBJETA")
 	    private String objeta;
 	    
@@ -55,36 +63,69 @@ public class Mission implements Serializable{
 	    private Collection<OrdMis> ordMisCollection;
 	    
 
-		public Mission(MissionPK missionPK, String objeta, String objetl, Date datdepP, Date datarrP, String codeMotcle,
-				String codetheme) {
+		
+
+	
+
+
+		public Mission(String numMission, String code, String objeta, String objetl, Date datdepP, Date datarrP,
+				DeptGen deptGen, application.model.Motcle motcle, Collection<OrdMis> ordMisCollection) {
 			super();
-			this.missionPK = missionPK;
+			this.numMission = numMission;
+			this.code = code;
 			this.objeta = objeta;
 			this.objetl = objetl;
 			this.datdepP = datdepP;
 			this.datarrP = datarrP;
-			
+			this.deptGen = deptGen;
+			Motcle = motcle;
+			this.ordMisCollection = ordMisCollection;
 		}
-
-	
-
 
 		public Mission() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public MissionPK getMissionPK() {
-			return missionPK;
-		}
-
-		public void setMissionPK(MissionPK missionPK) {
-			this.missionPK = missionPK;
-		}
+//		public MissionPK getMissionPK() {
+//			return missionPK;
+//		}
+//
+//		public void setMissionPK(MissionPK missionPK) {
+//			this.missionPK = missionPK;
+//		}
 
 		public String getObjeta() {
 			return objeta;
 		}
+
+		public String getNumMission() {
+			return numMission;
+		}
+
+
+
+
+		public void setNumMission(String numMission) {
+			this.numMission = numMission;
+		}
+
+
+
+
+		public String getCode() {
+			return code;
+		}
+
+
+
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+
+
 
 		public void setObjeta(String objeta) {
 			this.objeta = objeta;

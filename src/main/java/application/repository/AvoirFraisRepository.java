@@ -14,7 +14,7 @@ import application.model.Missionnaire;
 @Repository
 public interface AvoirFraisRepository extends JpaRepository<AvoirFrais, AvoirFraisPK> {
 	
-	@Query("select o from AvoirFrais  a , OrdMis o , Mission m where a.ordMis.ordMisPK.numMission=o.mission.missionPK.numMission and o.mission.missionPK.numMission=m.missionPK.numMission and m.missionPK.numMission=:num")
+	@Query("select o from AvoirFrais  a , OrdMis o , Mission m where a.ordMis.ordMisPK.numMission=o.mission.numMission and o.mission.numMission=m.numMission and m.numMission=:num")
 	public List<AvoirFrais> getFraisByMission(@Param("num")String num);
 	
 	}

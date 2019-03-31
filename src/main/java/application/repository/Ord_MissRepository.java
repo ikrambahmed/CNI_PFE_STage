@@ -25,7 +25,7 @@ public interface Ord_MissRepository extends JpaRepository<OrdMis, OrdMisPK>{
 
 	
 	//@Query("select o from Missionnaire o ,DeptGen p where p.code =:codeDept and  o.code= p.code ")
-    @Query("select ord from OrdMis ord , Mission m where ord.ordMisPK.numMission=:num and ord.ordMisPK.numMission=m.missionPK.numMission")
+    @Query("select ord from OrdMis ord , Mission m where ord.ordMisPK.numMission=:num and ord.ordMisPK.numMission=m.numMission")
 	 List<OrdMis> getMissionnaireByNumMission(@Param ("num")String num);
     
 }

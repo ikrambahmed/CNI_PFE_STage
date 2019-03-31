@@ -21,7 +21,7 @@ public class UserStructController {
 	private UserStructDao userStructDao ; 
 	
 	@GetMapping(value="/DeptOfUsername")
-	  public List <DeptGen> findDeptgent(@RequestParam(name="username",defaultValue="")String username)
+	  public DeptGen findDeptgent(@RequestParam(name="username",defaultValue="")String username)
 	    {
 		  return userStructDao.findDept(username) ; 
 	   }

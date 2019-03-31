@@ -62,10 +62,17 @@ public class MissionController {
 	   }
 	
 	
-	@PostMapping(value="/findById")
-	  public Optional<Mission> getMissionById(@RequestBody Mission mission)
+//	@PostMapping(value="/findById")
+//	  public Optional<Mission> getMissionById(@RequestBody Mission mission)
+//	    {
+//		  return missiondao.getMissionById(mission.getMissionPK().getCode() , mission.getMissionPK().getNumMission()) ; 
+//	    }
+	
+	@GetMapping(value="/latestMissionCode")
+	  public String findCodeMission(@RequestParam(name="codeDept",defaultValue="")String codeDept)
 	    {
-		  return missiondao.getMissionById(mission.getMissionPK().getCode() , mission.getMissionPK().getNumMission()) ; 
-	    }
+		  return missiondao.getLatestMissionCode(codeDept); 
+	   }
+	
 	
 }

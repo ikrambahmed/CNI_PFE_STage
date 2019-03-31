@@ -17,7 +17,7 @@ public interface UserStructRepository extends JpaRepository<UserStruct, Long>  {
 	
 	
 	@Query("select d from DeptGen d , UserStruct u  where u.dateAffectation =(select MAX(dateAffectation) from UserStruct  ) and u.utilisateur.username=:username and u.departement.code=d.code ")
-	List<DeptGen> findDeptGen(@Param("username")String username);
+	DeptGen findDeptGen(@Param("username")String username);
 
 	
 
